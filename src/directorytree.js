@@ -74,4 +74,11 @@ export default class DirectoryTree {
     shouldSync(path) {
 
     }
+
+    RestoreTree() {
+        if(this_._dirTree === null) {
+            return
+        }
+        JSON.stringify(this._dirTree)
+    }
 }
