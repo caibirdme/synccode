@@ -11,14 +11,14 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:extension.sayHello"
+    "onCommand:extension.synccode"
   ],
   "main": "./dist/extension",
   "contributes": {
     "commands": [
       {
-        "command": "extension.sayHello",
-        "title": "Hello World"
+        "command": "extension.synccode",
+        "title": "synccode"
       }
     ]
   },
@@ -31,5 +31,9 @@
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-stage-1": "^6.5.0",
     "vscode": "^0.11.0"
+  },
+  "dependencies": {
+    "rsync": "^0.4.0",
+    "watch": "^0.19.1"
   }
 }
