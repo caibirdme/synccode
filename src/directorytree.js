@@ -3,11 +3,16 @@ import * as fs from 'fs'
 
 /*
 DirectoryTree load synccode file or walk through the directory to initialize a tree in memory
-
+if experiment is true,maintain a directory tree in memory
+if experiment is false,just make full use of rsync
 */
 
 export default class DirectoryTree {
-    constructor(workDir) {
+    constructor(workDir, experiment) {
+        this._experiment = experiment
+        if(!this._experiment) {
+            return
+        }
         this._workDir = workDir
         this._dirTree = null
         this.loadSynccodeFile()
@@ -112,6 +117,9 @@ export default class DirectoryTree {
     }
 
     CreateFile(path, stat) {
+        if(!this._experiment) {
+            return
+        }
         let tree = this.buildFullPathInTree(path)
         let fileName = Path.basename(path)
         tree.children[fileName] = {
@@ -120,6 +128,9 @@ export default class DirectoryTree {
     }
     
     ChangeFile(path, stat) {
+        if(!this._experiment) {
+            return
+        }
         let [tree, ok, depth] = this.resolveObjectInTree(path)
         if(ok) {
             tree.lastModify = stat.mtime
@@ -129,6 +140,9 @@ export default class DirectoryTree {
     }
     
     RemoveFile(path, stat) {
+        if(!this._experiment) {
+            return
+        }
         let parentPath = path.substring(0, path.trim('/').lastIndexOf('/'))
         let fileName = Path.basename(path)
         let [tree, ok, depth] = this.resolveObjectInTree(parentPath)
@@ -146,6 +160,9 @@ export default class DirectoryTree {
     }
 
     RestoreTree() {
+        if(!this._experiment) {
+            return
+        }
         if(this_._dirTree === null) {
             return
         }

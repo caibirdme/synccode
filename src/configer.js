@@ -1,11 +1,7 @@
+import { workspace } from 'vscode'
+
 export default class Configer {
-    constructor() {
-
-    }
-    static Get() {
-
-    }
-    static Set() {
-
+    static Get(key) {
+        return workspace.getConfiguration(key)
     }
 }

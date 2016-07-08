@@ -6,6 +6,10 @@ export default class Rsyncer {
         this._workDir = workDir
     }
 
+    mergeArray(arr1, arr2) {
+        return arr1.concat(arr2.filter((value, index) => arr1.indexOf(value)<0 ))
+    }
+
     runSync(option = {}) {
         let defaultOption = {
             src: this._workDir,
@@ -13,6 +17,9 @@ export default class Rsyncer {
             recursive: true,
             exclude: [".git/*"],
             ssh: true,  
+        }
+        if(option.exclude && option.exclude instanceof Array) {
+            option.exclude = this.mergeArray(option.exclude, defaultOption.exclude)
         }
         let newOption = Object.assign(defaultOption, option)
         Rsync(newOption, (err, stdout, stderr, cmd) => {})
