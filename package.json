@@ -25,12 +25,12 @@
       "type": "object",
       "title": "synccode configuration",
       "properties": {
-        "host": {
+        "synccode.host": {
           "type": "string",
           "default": "",
           "description": "host of your remote server,the format must the same as username@a.b.c.d:/path/to/dir"
         },
-        "experiment": {
+        "synccode.experiment": {
           "type": "boolean",
           "default": false,
           "description": "use experiment feature: maintain a dir tree in memory to reduce net transfer"
