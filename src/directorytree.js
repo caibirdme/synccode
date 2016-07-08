@@ -1,5 +1,6 @@
 import * as Path from 'path'
 import * as fs from 'fs'
+
 /*
 DirectoryTree load synccode file or walk through the directory to initialize a tree in memory
 

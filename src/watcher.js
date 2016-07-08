@@ -1,6 +1,5 @@
 import watchUtil from 'watch'
 import DirectoryTree from './directorytree'
-import Rsync from 'rsync'
 
 export default class Watcher {
     constructor(rootDirectory, watchOptions) {
@@ -18,7 +17,6 @@ export default class Watcher {
     }
     //f is the absolutely path of target file
     handleCreated(f, stat) {
-        
         this._directoryTree.CreateFile(f, stat)
     }
 
