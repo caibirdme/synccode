@@ -110,7 +110,7 @@ export default class DirectoryTree {
         return tree
     }
 
-    CreateNewFile(path, stat) {
+    CreateFile(path, stat) {
         let tree = this.buildFullPathInTree(path)
         let fileName = Path.basename(path)
         tree.children[fileName] = {

@@ -1,7 +1,10 @@
 import watchUtil from 'watch'
+import DirectoryTree from './directorytree'
+import Rsync from 'rsync'
 
 export default class Watcher {
     constructor(rootDirectory, watchOptions) {
+        this._directoryTree = new DirectoryTree(rootDirectory)
         watchUtil.createMonitor(rootDirectory, watchOptions, monitor => {
             this._monitor = monitor
             this._monitor.on('created', this.handleCreated)
@@ -10,15 +13,20 @@ export default class Watcher {
         })
     }
     Stop() {
+        this._directoryTree.RestoreTree()
         this._monitor.stop()
     }
+    //f is the absolutely path of target file
     handleCreated(f, stat) {
-
-    }
-    handleChanged(f, current, previous) {
-
-    }
-    handleRemoved(f, stat) {
         
+        this._directoryTree.CreateFile(f, stat)
+    }
+
+    handleChanged(f, curStat, prevStat) {
+        this._directoryTree.ChangeFile(f, curStat)
+    }
+
+    handleRemoved(f, stat) {
+        this._directoryTree.RemoveFile(f, stat)
     }
 }

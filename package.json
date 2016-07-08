@@ -24,7 +24,8 @@
   },
   "scripts": {
     "postinstall": "node ./node_modules/vscode/bin/install",
-    "compile": "babel src --out-dir dist"
+    "compile": "babel src --out-dir dist",
+    "prepublish": "npm run compile"
   },
   "devDependencies": {
     "babel-cli": "^6.10.1",
@@ -33,7 +34,7 @@
     "vscode": "^0.11.0"
   },
   "dependencies": {
-    "rsync": "^0.4.0",
+    "rsyncwrapper": "^1.0.1",
     "watch": "^0.19.1"
   }
 }
