@@ -1,26 +1,26 @@
 export default class FakeTree {
     constructor(rootDir) {
-        console.log(`this is fake tree`)
+        //console.log(`this is fake tree`)
         this._rootDir = rootDir
     }
 
     Stop() {
-        console.log('fake stop')
+        //console.log('fake stop')
     }
 
     CreateFile(f, stat) {
-        console.log('fake create')
+        //console.log('fake create')
     }
 
     ChangeFile(f, stat) {
-        console.log('fake change')
+        //console.log('fake change')
     }
 
     RemoveFile(f, stat) {
-        console.log('fake remove')
+        //console.log('fake remove')
     }
 
     RestoreTree() {
-        console.log('fake restore')
+        //console.log('fake restore')
     }
 }

@@ -5,7 +5,7 @@ import TreeFactory from './factory/tree'
 export default class Watcher {
     constructor(rootDirectory, watchOptions) {
         this._directoryTree = TreeFactory(rootDirectory)
-        //this._rsyncer = new Rsyncer(rootDirectory)
+        this._rsyncer = new Rsyncer(rootDirectory)
         watchUtil.createMonitor(rootDirectory, watchOptions, monitor => {
             this._monitor = monitor
             this._monitor.on('created', this.handleCreated.bind(this))
@@ -19,17 +19,17 @@ export default class Watcher {
     }
     //f is the absolutely path of target file
     handleCreated(f, stat) {
-        //this._rsyncer.SyncDir()
+        this._rsyncer.SyncDir()
         this._directoryTree.CreateFile(f, stat)
     };
 
     handleChanged(f, curStat, prevStat) {
-        //this._rsyncer.SyncDir()
+        this._rsyncer.SyncDir()
         this._directoryTree.ChangeFile(f, curStat)
     }
 
     handleRemoved(f, stat) {
-        //this._rsyncer.SyncRemove()
+        this._rsyncer.SyncRemove()
         this._directoryTree.RemoveFile(f, stat)
     }
 }
