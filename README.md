@@ -1,6 +1,6 @@
 ## Features
 
-Rsync your workspace folder to remote server
+* rsync your workspace folder to remote server
 
 
 ## Requirements
