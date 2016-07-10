@@ -41,7 +41,8 @@
   "scripts": {
     "postinstall": "node ./node_modules/vscode/bin/install",
     "compile": "babel src --out-dir dist",
-    "prepublish": "npm run compile"
+    "prepublish": "npm run compile",
+    "vscode:prepublish": "npm run compile"
   },
   "devDependencies": {
     "babel-cli": "^6.10.1",
