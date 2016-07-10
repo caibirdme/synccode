@@ -1,17 +1,16 @@
 import watchUtil from 'watch'
-import DirectoryTree from './directorytree'
-import Configer from './configer'
 import Rsyncer from './rsyncer'
+import TreeFactory from './factory/tree'
 
 export default class Watcher {
     constructor(rootDirectory, watchOptions) {
-        this._directoryTree = new DirectoryTree(rootDirectory, Configer.Get('experiment'))
-        this._rsyncer = new Rsyncer(rootDirectory)
+        this._directoryTree = TreeFactory(rootDirectory)
+        //this._rsyncer = new Rsyncer(rootDirectory)
         watchUtil.createMonitor(rootDirectory, watchOptions, monitor => {
             this._monitor = monitor
-            this._monitor.on('created', this.handleCreated)
-            this._monitor.on('changed', this.handleChanged)
-            this._monitor.on('removed', this.handleRemoved)
+            this._monitor.on('created', this.handleCreated.bind(this))
+            this._monitor.on('changed', this.handleChanged.bind(this))
+            this._monitor.on('removed', this.handleRemoved.bind(this))
         })
     }
     Stop() {
@@ -20,17 +19,17 @@ export default class Watcher {
     }
     //f is the absolutely path of target file
     handleCreated(f, stat) {
-        this._rsyncer.SyncDir()
+        //this._rsyncer.SyncDir()
         this._directoryTree.CreateFile(f, stat)
-    }
+    };
 
     handleChanged(f, curStat, prevStat) {
-        this._rsyncer.SyncDir()
+        //this._rsyncer.SyncDir()
         this._directoryTree.ChangeFile(f, curStat)
     }
 
     handleRemoved(f, stat) {
-        this._rsyncer.SyncRemove()
+        //this._rsyncer.SyncRemove()
         this._directoryTree.RemoveFile(f, stat)
     }
 }

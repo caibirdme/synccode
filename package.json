@@ -28,7 +28,7 @@
         "synccode.host": {
           "type": "string",
           "default": "",
-          "description": "host of your remote server,the format must the same as username@a.b.c.d:/path/to/dir"
+          "description": "host of your remote server,the format must be the same as username@a.b.c.d:/path/to/dir"
         },
         "synccode.experiment": {
           "type": "boolean",
