@@ -11,9 +11,13 @@ export default class Rsyncer {
     }
 
     runSync(option = {}) {
+        let dest = Configer.Get("host")
+        if(dest === "") {
+            return
+        }
         let defaultOption = {
             src: this._workDir,
-            dest: Configer.Get('host'),
+            dest,
             recursive: true,
             exclude: [".git/*"],
             ssh: true,  
