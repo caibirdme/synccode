@@ -8,9 +8,9 @@ Rsync your workspace folder to remote server
 Make sure you have `rsync` installed on your system and it's added to PATH
 
 `synccode` use ssh to sync your code so you should insure that you can access your remote server
-just by `ssh username@a.b.c.d`
+just by `ssh username@a.b.c.d` without password
 
-This is very important,so you should make sure things above.
+This is very important,so you should make sure all things above.
 
 ## Extension Settings
 
