@@ -21,6 +21,9 @@ This extension contributes the following settings:
 * `synccode.host`: (string) the host of your remote server,the format must be the same as `username@a.b.c.d:/path/to/remote/dir`
 * `synccode.experiment`: (boolean) if true,the experiment function will be used,it's unstable now.Default false
 
+Click `Code->preference->workspace settings`,input `"synccode.host": username@yourIP:/path/to/remote/dir` in the right panel
+,in most cases,when you input `synccode` there will be autocomplete.
+
 ## Known Issues
 
 If you have any problem welcome to create an issue
