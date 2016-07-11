@@ -11,6 +11,9 @@
         "type": "git",
         "url": "https://github.com/caibirdme/synccode.git"
     },
+    "bugs": {
+        "url": "https://github.com/caibirdme/synccode/issues"
+    },
     "categories": [
         "Other"
     ],
