@@ -43,6 +43,16 @@
           "type": "boolean",
           "default": false,
           "description": "set true to use --delete in rsync command"
+        },
+        "synccode.exclude": {
+          "type": "array",
+          "default": [".git/*"],
+          "description": "an array to specify exclude files"
+        },
+        "synccode.debug": {
+          "type": "boolean",
+          "default": false,
+          "description": "if set true,synccode will output logs,you will never set this to true"
         }
       }
     }

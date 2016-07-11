@@ -19,14 +19,21 @@ export default class Rsyncer {
             src: this._workDir,
             dest,
             recursive: true,
-            exclude: [".git/*"],
+            exclude: Configer.Get("exclude"),
             ssh: true,  
         }
-        if(option.exclude && option.exclude instanceof Array) {
-            option.exclude = this.mergeArray(option.exclude, defaultOption.exclude)
-        }
         let newOption = Object.assign(defaultOption, option)
-        Rsync(newOption, (err, stdout, stderr, cmd) => {})
+        if(!(newOption.exclude instanceof Array)) {
+            delete newOption.exclude
+        }
+        Rsync(newOption, (err, stdout, stderr, cmd) => {
+            if(Configer.Get("debug")) {
+                if(err) {
+                    console.error(`error: ${err} stderr: ${stderr}`)
+                }
+                console.log(cmd)
+            }
+        })
     }
 
     SyncDir() {
