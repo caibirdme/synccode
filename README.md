@@ -34,6 +34,12 @@ If you have any problem welcome to create an issue
 ### 0.0.1
 * Initialize the plugin
 
+### 0.0.2
+* add debug mode
+* add exclude configuration
+* add non deleting mode
+* beautify homepage
+
 
 
 ---
