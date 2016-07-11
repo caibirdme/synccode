@@ -77,5 +77,6 @@
   "galleryBanner": {
     "color": "#12d821",
     "theme": "dark"
-  }
+  },
+  "license": "MIT"
 }
