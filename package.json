@@ -2,7 +2,7 @@
   "name": "synccode",
   "displayName": "synccode",
   "description": "tool for sync code",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "caibirdme",
   "engines": {
     "vscode": "^1.0.0"
