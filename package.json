@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/caibirdme/synccode.git"
+    "url": "https://github.com/caibirdme/synccode.git"
   },
   "categories": [
     "Other"
@@ -72,5 +72,10 @@
   "dependencies": {
     "rsyncwrapper": "^1.0.1",
     "watch": "^0.19.1"
+  },
+  "icon": "image/sync_image.png",
+  "galleryBanner": {
+    "color": "#12d821",
+    "theme": "dark"
   }
 }
