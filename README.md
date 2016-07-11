@@ -40,6 +40,9 @@ If you have any problem welcome to create an issue
 * add non deleting mode
 * beautify homepage
 
+### 0.0.3
+* add LICENSE
+
 
 
 ---
