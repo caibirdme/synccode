@@ -1,6 +1,7 @@
 import watchUtil from 'watch'
 import Rsyncer from './rsyncer'
 import TreeFactory from './factory/tree'
+import Configer from './configer'
 
 export default class Watcher {
     constructor(rootDirectory, watchOptions) {
@@ -10,7 +11,9 @@ export default class Watcher {
             this._monitor = monitor
             this._monitor.on('created', this.handleCreated.bind(this))
             this._monitor.on('changed', this.handleChanged.bind(this))
-            this._monitor.on('removed', this.handleRemoved.bind(this))
+            if(Configer.Get("delete")) {
+                this._monitor.on('removed', this.handleRemoved.bind(this))
+            }
         })
     }
     Stop() {

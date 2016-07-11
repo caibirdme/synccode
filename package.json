@@ -38,6 +38,11 @@
           "type": "boolean",
           "default": false,
           "description": "use experiment feature: maintain a dir tree in memory to reduce net transfer"
+        },
+        "synccode.delete": {
+          "type": "boolean",
+          "default": false,
+          "description": "set true to use --delete in rsync command"
         }
       }
     }
