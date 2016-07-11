@@ -22,9 +22,13 @@ This extension contributes the following settings:
 * `synccode.exclude`: (array | default `[".git/*"]`) files that you want exclude them
 * `synccode.delete`: (boolean | default `false`) set `true` to add `--delete` in rsync command
 
+## Usage
 
-Click `Code->preference->workspace settings`,input `"synccode.host": username@yourIP:/path/to/remote/dir` in the right panel
-,in most cases,when you input `synccode` there will be autocomplete.
+* open a directory
+* set `synccode.host`,click `Code->preference->workspace settings` to open the configuration view,
+input `"synccode.host": username@yourIP:/path/to/remote/dir` in the right panel,
+when you input `synccode` there will be autocomplete.
+* `shift+⌘+P`and input `synccode` to enable
 
 ## Known Issues
 
